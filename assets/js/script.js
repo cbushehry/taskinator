@@ -48,8 +48,17 @@ var createTaskEl = function(taskDataObj) {
 
   var taskInfoEl = document.createElement("div");
   taskInfoEl.className = "task-info";
-  taskInfoEl.innerHTML =
-    "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
+
+  var taskNameEl = document.createElement("h3");
+  taskNameEl.className = "task-name";
+  taskNameEl.textContent = taskDataObj.name;
+
+  var taskTypeEl = document.createElement("span");
+  taskTypeEl.className = "task-type";
+  taskTypeEl.textContent = taskDataObj.type;
+
+  taskInfoEl.appendChild(taskNameEl);
+  taskInfoEl.appendChild(taskTypeEl);
   listItemEl.appendChild(taskInfoEl);
 
   var taskActionsEl = createTaskActions(taskIdCounter);
